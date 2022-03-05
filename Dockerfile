@@ -17,11 +17,14 @@ ENV GROUP darkhttpd
 ENV GID 911
 ENV UID 911
 ENV PORT 8080
+ENV DPORT 8081
 
 RUN addgroup -S ${GROUP} -g ${GID} && adduser -D -S -u ${UID} ${USER} ${GROUP} && \
     apk add -U --no-cache su-exec darkhttpd
 
 COPY --from=build-stage --chown=${USER}:${GROUP} /app/dist /www/
+COPY --from=build-stage --chown=${USER}:${GROUP} /app/database /www-database
+
 COPY entrypoint.sh /entrypoint.sh
 
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
