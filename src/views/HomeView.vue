@@ -11,9 +11,8 @@ async function fetchData() {
   const data = await response.json();
   // waits until the request completes...
   console.log(data.test);
-  loading.value = false;
-
   data.value = data;
+  loading.value = false;
 }
 
 onMounted(() => {
