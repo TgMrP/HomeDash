@@ -7,8 +7,6 @@ const error = ref(null);
 
 function fetchData() {
   loading.value = true;
-  // I prefer to use fetch
-  // you can use use axios as an alternative
   return fetch("/database/test.json", {
     method: "get",
     headers: {
@@ -26,6 +24,7 @@ function fetchData() {
     })
     .then((json) => {
       // set the response data
+      console.log(json);
       data.value = json;
     })
     .catch((err) => {
@@ -48,7 +47,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <ul v-if="!loading && data">
+    <ul v-if="!loading">
       {{
         data
       }}
