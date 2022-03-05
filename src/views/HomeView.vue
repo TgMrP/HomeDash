@@ -26,7 +26,7 @@ function fetchData() {
     })
     .then((json) => {
       // set the response data
-      data.value = json.data;
+      data.value = json;
     })
     .catch((err) => {
       error.value = err;
