@@ -5,39 +5,11 @@ const data = ref(null);
 const loading = ref(true);
 const error = ref(null);
 
-function fetchData() {
+async function fetchData() {
   loading.value = true;
-  return fetch("/database/test.json", {
-    method: "get",
-    headers: {
-      "content-type": "application/json",
-    },
-  })
-    .then((res) => {
-      if (!res.ok) {
-        const error = new Error(res.statusText);
-        error.json = res.json();
-        throw error;
-      }
-
-      return res.json();
-    })
-    .then((json) => {
-      // set the response data
-      console.log(json);
-      data.value = json;
-    })
-    .catch((err) => {
-      error.value = err;
-      if (err.json) {
-        return err.json.then((json) => {
-          error.value.message = json.message;
-        });
-      }
-    })
-    .then(() => {
-      loading.value = false;
-    });
+  const response = await fetch("/database/test.json");
+  // waits until the request completes...
+  console.log(response);
 }
 
 onMounted(() => {
