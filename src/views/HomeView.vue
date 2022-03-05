@@ -53,7 +53,9 @@ onMounted(() => {
 <template>
   <ul v-if="!loading && data && data.length">
     <li v-for="(post, i) of data" :key="i">
-      <p><strong></strong></p>
+      <p>
+        <strong>{{ post }}</strong>
+      </p>
       <p></p>
     </li>
   </ul>
