@@ -9,7 +9,7 @@ async function fetchData() {
   loading.value = true;
   const response = await fetch("/database/test.json");
   // waits until the request completes...
-  console.log(response);
+  console.log(response.body);
 }
 
 onMounted(() => {
