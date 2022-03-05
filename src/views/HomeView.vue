@@ -10,7 +10,7 @@ async function fetchData() {
   const response = await fetch("/database/test.json");
   const data = await response.json();
   // waits until the request completes...
-  console.log(data);
+  console.log(data.test);
   loading.value = false;
 
   data.value = data;
@@ -25,7 +25,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <div v-if="!loading">data: {{ data }}</div>
+    <div v-if="!loading">data: {{ data.test }}</div>
 
     <p v-if="loading">Still loading..</p>
     <p v-if="error"></p>
