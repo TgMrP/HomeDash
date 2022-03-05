@@ -12,7 +12,7 @@ async function fetchData() {
     const data = await response.json();
     // waits until the request completes...
     console.log(data.test);
-    data.value = data;
+    data.value = data.test;
   } catch (error) {
     console.log(error);
   } finally {
