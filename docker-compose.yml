@@ -8,7 +8,6 @@ services:
       - test:/www/assets
     ports:
       - 9780:8080
-      - 9781:8081
     environment:
       - UID=1000
       - GID=1000
