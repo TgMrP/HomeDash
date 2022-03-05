@@ -11,6 +11,7 @@ async function fetchData() {
   const data = await response.json();
   // waits until the request completes...
   console.log(data);
+  loading.value = false;
 
   data.value = data;
 }
@@ -22,7 +23,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <ul v-if="!loading">
+    <ul v-if="!loading && data">
       {{
         data
       }}
