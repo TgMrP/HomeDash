@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-const data = ref(null);
+const data = recative(null);
 const loading = ref(true);
 const error = ref(null);
 
@@ -22,7 +22,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <div v-if="!loading && data.test">data: {{ data.test }}</div>
+    <div v-if="!loading && data">data: {{ data }}</div>
 
     <p v-if="loading">Still loading..</p>
     <p v-if="error"></p>
