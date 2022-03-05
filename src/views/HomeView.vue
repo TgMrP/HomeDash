@@ -14,10 +14,12 @@ async function fetchData() {
   loading.value = false;
 
   data.value = data;
+  console.log(data.value);
 }
 
 onMounted(() => {
   fetchData();
+  console.log(data.value);
 });
 </script>
 
