@@ -26,10 +26,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
-    <div v-if="!loading && data">data: {{ data }}</div>
+  <div v-if="!loading && data">data: {{ data }}</div>
 
-    <p v-if="loading">Still loading..</p>
-    <p v-if="error"></p>
-  </main>
+  <p v-if="loading">Still loading..</p>
+  <p v-if="error"></p>
 </template>
