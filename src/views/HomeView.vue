@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-const data = ref(null);
+const data = ref([]);
 const loading = ref(true);
 const error = ref(null);
 
@@ -9,7 +9,7 @@ function fetchData() {
   loading.value = true;
   // I prefer to use fetch
   // you can use use axios as an alternative
-  return fetch("http://jsonplaceholder.typicode.com/posts", {
+  return fetch("/database/test.json", {
     method: "get",
     headers: {
       "content-type": "application/json",
@@ -54,7 +54,7 @@ onMounted(() => {
   <ul v-if="!loading && data && data.length">
     <li v-for="(post, i) of data" :key="i">
       <p>
-        <strong>{{ post.title }}</strong>
+        <strong>{{ post }}</strong>
       </p>
       <p></p>
     </li>
