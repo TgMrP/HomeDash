@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-const data = recative(null);
+const data = ref(null);
 const loading = ref(true);
 const error = ref(null);
 
