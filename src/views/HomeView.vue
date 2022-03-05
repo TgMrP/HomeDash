@@ -6,13 +6,18 @@ const loading = ref(true);
 const error = ref(null);
 
 async function fetchData() {
-  loading.value = true;
-  const response = await fetch("/database/test.json");
-  const data = await response.json();
-  // waits until the request completes...
-  console.log(data.test);
-  data.value = data;
-  loading.value = false;
+  try {
+    loading.value = true;
+    const response = await fetch("/database/test.json");
+    const data = await response.json();
+    // waits until the request completes...
+    console.log(data.test);
+    data.value = data;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    loading.value = false;
+  }
 }
 
 onMounted(() => {
