@@ -54,11 +54,13 @@ onMounted(() => {
   <ul v-if="!loading && data && data.length">
     <li v-for="(post, i) of data" :key="i">
       <p>
-        <strong>{{ post }}</strong>
+        <strong>{{ post.title }}</strong>
       </p>
       <p></p>
     </li>
   </ul>
+
+  {{ data }}
 
   <p v-if="loading">Still loading..</p>
   <p v-if="error"></p>
